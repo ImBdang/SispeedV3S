@@ -46,3 +46,31 @@ Mình sẽ để file fetch_sources.sh để fetch sources về project dễ dà
 chmod +x ./fetch_sources.sh
 ./fetch_sources.sh
 ```
+## Build
+
+```bash
+export ARCH=arm
+export CROSS_COMPILE=arm-linux-gnueabihf-
+```
+
+```bash
+cd sources/u-boot
+make LicheePi_Zero_defconfig
+make -j$(nproc)
+```
+
+```bash
+cd ../linux
+make sunxi_defconfig
+make -j$(nproc) zImage dtbs
+```
+
+Đối với busybox chúng ta sẽ mở comment static build, để tránh busybox copy thêm thư viện libc vào rootfs. Giúp mọi thứ đơn giản hơn để nhìn thấy cốt lõi của nó
+
+```bash
+cd ../busybox
+make defconfig
+sed -i 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/' .config
+make -j$(nproc)
+make CONFIG_PREFIX=../../rootfs install
+```
