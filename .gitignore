@@ -1,0 +1,33 @@
+# Upstream source trees
+sources/
+
+# Build outputs
+output/
+build/
+*.o
+*.ko
+*.mod
+*.mod.c
+*.cmd
+*.dtb
+*.dtbo
+*.bin
+*.img
+*.elf
+*.map
+*.srec
+*.log
+*.cpio
+*.cpio.gz
+*.tar.xz
+*.tar.gz
+
+# Kernel/U-Boot generated files
+.config
+include/generated/
+arch/*/include/generated/
+
+# Editor
+.vscode/
+.idea/
+*.swp

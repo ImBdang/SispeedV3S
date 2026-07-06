@@ -16,6 +16,7 @@ sudo apt install -y \
     flex bison bc libssl-dev libelf-dev libncurses-dev \
     device-tree-compiler u-boot-tools \
     python3 python3-pyelftools \
+    sudo apt install -y libgnutls28-dev \
     cpio
 ```
 
@@ -29,3 +30,19 @@ export CROSS_COMPILE=arm-linux-gnueabihf-
 ## Tài liệu
 
 Toàn bộ ghi chép và tài liệu cần học sẽ nằm trong folder docs/
+
+## Sources
+
+Tiếp theo là sẽ tải sources của U-boot/Kernel/Rootfs nhé
+
+Ở đây mình sử dụng:
+- U-boot v2026.07-rc5
+- Kernel v6.12
+- BusyBox 1_36_1
+
+Mình sẽ để file fetch_sources.sh để fetch sources về project dễ dàng hơn.
+
+```text
+chmod +x ./fetch_sources.sh
+./fetch_sources.sh
+```
